@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <link rel="stylesheet" href="highlighter/prettify.css" />
+      <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Javascript Practice</title>
+     <!-- Insert Javascript file -->
+     <script src="click.js"></script>
+
+  </head>
+<body>
+	<script src="highlighter/prettify.js"></script>
+		<nav class="navbar navbar-default" role="navigation">
+  	<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+	<div class="jumbotron">
+		 <center><h1>Javascript Practice Problems</h1></center>
+<!-- coderbyte1 -->
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 1</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint"><h5>
+ 
+ Using the JavaScript language, have the function FirstReverse(str) take the  
+ str parameter being passed and return the string in reversed order. 
+</pre>
+<pre class="prettyprint">
+
+ Input = "coderbyte"    Output = "etybredoc"
+ Input = "I Love Code"  Output = "edoC evoL I"
+	    </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages1" style="font-size: 10.4pt"> function FirstReverse(str) { <br><br>  return str.split("").reverse().join("");<br><br> }</p>
+</pre>
+   </div>
+  
+    <button id = "newanswer1" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+<!-- coderbyte2 --> 
+
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 2</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint"><h5>
+ 
+ Using the JavaScript language, have the function FirstFactorial(num) take 
+ the num parameter being passed and return the factorial of it (ie. if num =4,
+ return (4 * 3 * 2 * 1)). For the test cases, the range will be between 1 and 18. 
+</pre>
+<pre class="prettyprint">
+
+ Input = 4  Output = 24
+ Input = 8  Output = 40320
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages2" style="font-size: 10.4pt"> function FirstFactorial(num) {<br><br>    if (num===0) {<br><br>       return 1;}<br><br>    else {<br><br>       return num*FirstFactorial(num-1);<br><br>     }<br><br>  })</p></pre>
+
+   </div>
+  
+    <button id = "newanswer2" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+<!-- coderbyte3 -->
+
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 3</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint"><h5>
+ Using the JavaScript language, have the function LongestWord(sen) take the
+ sen parameter being passed and return the largest word in the string. If
+ there are two or more words that are the same length, return the first word
+ from the string with that length.Ignore punctuation and assume sen will not
+ be empty. 
+</pre>
+<pre class="prettyprint">
+
+ Input = "fun&!! time"  Output = "time"
+ Input = "I love dogs"  Output = "love"
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages3" style="font-size: 10.4pt"> function LongestWord(sen) { <br><br>   var x=sen.replace(/\W/g," ").split(" ").filter(function(i) {return (i!=="");})<br><br>   return x.sort(function(a,b){ return b.length - a.length;})[0]; <br><br> })</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer3" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+<!-- coderbyte4 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 4</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint"><h5>
+ Using the JavaScript language, have the function LetterChanges(str) take
+ the str parameter being passed and modify it using the following algorithm
+ Replace every letter in the string with the letter following it in the
+ alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in
+ this new string (a, e, i, o, u) and finally return this modified string. 
+</pre>
+<pre class="prettyprint">
+
+ Input = "hello*3"    Output = "Ifmmp*3"
+ Input = "fun times!" Output = "gvO Ujnft!"
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages4" style="font-size: 10.4pt">
+  function LetterChanges(str) { 
+ 
+    return str.replace(/[a-zA-Z]/g,function(x) {
+    return String.fromCharCode(x.charCodeAt(0)+1); }).replace(/[aeiou]/g,function(y) {
+    return y.toUpperCase(); 
+    });
+  
+  }
+   </p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer4" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+<!-- coderbyte5 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 5</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint"><h5>
+   Using the JavaScript language, have the function SimpleAdding(num) add up all the numbers 
+   from 1 to num.For the test cases, the parameter num will be any number from 1 to 1000.  
+ </pre>
+ <pre class="prettyprint">
+
+   Input = 12   Output = 78
+   Input = 140  Output = 9870
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages5" style="font-size: 10.4pt">
+  function SimpleAdding(num) { 
+
+    var y=0
+    for (var i=1; i&lt;num+1; i++){
+       y=y+i;
+       }
+    return y 
+  }
+   </p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer5" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+    <!-- coderbyte6 -->
+     <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 6</h3>
+<div class="container">
+<p >
+   <pre class="prettyprint" align="justify"><h5>
+  Using the JavaScript language, have the function LetterCapitalize(str)
+  take the str parameter being passed and capitalize the first letter of
+  each word. Words will be separated by only one space.  
+</pre>
+<pre class="prettyprint">
+
+  Input = "hello world"  Output = "Hello World"
+  Input = "i ran there"  Output = "I Ran There"
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages6" style="font-size: 10.4pt">
+  function LetterCapitalize(str) {
+    var c=[]  
+    var sep=str.split(" "); 
+    for(var i=0; i&lt;sep.length; i++){
+    
+      c.push(sep[i][0].toUpperCase()+sep[i].slice(1))
+    }
+
+    return c.join(" "); 
+
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer6" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+        <!-- coderbyte7 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 7</h3>
+<div class="container">
+<p >
+   <pre class="prettyprint" align="justify"><h5>
+  Using the JavaScript language, have the function SimpleSymbols(str) take the
+  str parameter being passed and determine if it is an acceptable sequence by
+  either returning the string true or false. The str parameter will be
+  composed of + and = symbols with several letters between them (ie ++d+===+c++==a) 
+  and for the string to be true each letter must be surrounded by a + symbol
+  So the string to the left would be false. The string will not be empty and
+  will have at least one letter. 
+</pre>
+<pre class="prettyprint">
+
+  Input = "+d+=3=+s+"  Output = "true"
+  Input = "f++d+"      Output = "false"
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages7" style="font-size: 10.4pt">
+ function SimpleSymbols(str) { 
+
+  var text=str.split("")
+  var alpha="abcdefghijklmnopqrstuwxyz"
+  
+  for (var i=0; i&lt;text.length; i++){
+   
+    if((alpha.indexOf(text[i])!==-1) && (text[i-1]!== "+" || text[i+1]!== "+"))
+     {
+          return false;
+     }
+   }
+  
+   return true 
+         
+ }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer7" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+       <!-- coderbyte8 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 8</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint" align="left"><h5>
+  Using the JavaScript language, have the function CheckNums(num1,num2) take 
+  both parameters being passed and return the string true if num2 is greater
+  than num1, otherwise return the string false. If the parameter values are
+  equal to each other then return the string -1. 
+</pre>
+<pre class="prettyprint">
+
+  Input: num1=3  & num2 = 122  Output = "true"
+  Input: num1=67 & num2 = 67   Output = "-1"
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages8" style="font-size: 10.4pt">
+  function CheckNums(num1,num2) { 
+
+    if(num2 > num1){
+    
+        return true;
+      }
+  
+    else if( num2 < num1){
+        return false;
+    }
+      
+    else 
+    {
+        return -1;
+      }
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer8" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+          <!-- coderbyte9 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 9</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint"><h5>
+  Using the JavaScript language, have the function TimeConvert(num)
+  take the num parameter being passed and return the number of hours and 
+  minutes the parameter converts to (ie. if num = 63 then the output should
+  be 1:3). Separate the number of hours and minutes with a colon. 
+</pre>
+<pre class="prettyprint">
+
+  Input = 126  Output = "2:6"
+  Input = 45   Output = "0:45"
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages9" style="font-size: 10.4pt">
+    function TimeConvert(num) { 
+      h=Math.floor(num/60)
+      m=num%60  
+      return (h + ":" + m).toString();   
+    }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer9" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+              <!-- coderbyte10 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 10</h3>
+<div class="container">
+<p>
+   <pre class="prettyprint"><h5>
+  Using the JavaScript language, have the function AlphabetSoup(str)
+  take the str string parameter being passed and return the string with
+  the letters in alphabetical order (ie. hello becomes ehllo). Assume 
+  numbers and punctuation symbols will not be included in the string.
+</pre>
+<pre class="prettyprint">
+
+  Input = "coderbyte"  Output = "bcdeeorty"
+  Input = "hooplah"    Output = "ahhloop"
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages10" style="font-size: 10.4pt">
+  function AlphabetSoup(str) {   
+      var x= str.split("") 
+      return x.sort().join("") 
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer10" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+              <!-- coderbyte10 -->
+
+<script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>
+
+	
+
+

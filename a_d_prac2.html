@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="highlighter/prettify.css" /> 
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  
+      <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="click.js"></script>
+
+    <title>Template</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<style>
+  table,td{
+
+     border: 1px solid black; 
+
+  }
+  </style>
+    
+    </head>
+
+       <body>
+         <NOSCRIPT>
+    <DIV STYLE="color:#CC0000; text-align:center">
+      <B>Warning: <A HREF="http://www.math.union.edu/locate/jsMath">jsMath</A>
+      requires JavaScript to process the mathematics on this page.<BR>
+      If your browser supports JavaScript, be sure it is enabled.</B>
+    </DIV>
+    <HR>
+    </NOSCRIPT>
+
+        <script src="highlighter/prettify.js"></script>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  <div class="jumbotron">
+
+
+     <center><h1>Algorithm and Data Structures Problems (Sorting)</h1></center>
+         
+<!-- coderbyte21 -->
+
+<br>
+</pre>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;<u>A&D Problem#1: Bubble Sort</h3></u>
+
+<br>
+<center><img src="images/bubble_sort.jpg" width="350px" height="450px"></center>
+<center>Figure 1.1</center>
+<br>
+
+
+
+<div class="container">
+<p>
+   <pre><h5>
+  In Javascript, implement the Bubble Sort algorithm and state the complexity 
+  for the worst case scenario.Refer to the Figure 1.1 above for illustration. 
+  </pre> 
+
+<br>
+    <pre class = "prettyprint">
+  function bubblesort(arr){
+
+    var swapped; 
+
+    do{
+       swapped=false; 
+       for(var i=0; i < arr.length; i++){
+       if(arr[i]>arr[i+1]){
+       var temp=arr[i]; 
+       arr[i]=arr[i+1];
+       arr[i+1]=temp; 
+       swapped=true;
+         }
+       }
+
+      } while(swapped) 
+      return arr 
+    }
+
+   
+</pre>
+<br> <h4> Number of comparisions: </h4> $(n-1)+(n-2)+...1+0 = \frac{n}{2}(n-1)$ (using Arthimetic Series)
+<h4> Time Complexity: </h4> <mark>$T(n)=\Theta({n^2})$ </mark>
+
+<br>
+
+<center><h4>Performance: </h4>
+
+<br>
+<table>
+
+<tr>
+<td> Worst case complexity: $O(n^2)$</td>
+</tr>
+
+<tr>
+<td> Best case complexity: $O(n)$</td>
+</tr>
+
+<tr>
+<td> Average case complexity: $O(n^2)$</td>
+</tr>
+
+<tr>
+<td> Worst case space complexity: $O(1)$ auxiliary</td>
+</tr>
+</table></center>
+</div>
+
+<p>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;<u>A&D Problem#2: Insertion Sort</h3></u>
+
+<br>
+<center><img src="images/insertion_sort.jpg" width="400px" height="500px"></center>
+<center>Figure 1.2</center>
+
+<br>
+
+
+<div class="container">
+<p>
+   <pre><h5>
+  In Javascript, implement the Insertion Sort algorithm and state the 
+  complexity for the worst case scenario. Refer to figure 1.2 above for illustration. 
+</pre>
+
+    <pre class = "prettyprint">
+  function insertionSort(arr){
+    var value,i,j; 
+
+    for(i=0; i < arr.length; i++){
+
+      value=arr[i];
+      
+      //check to see if previous value is greater than the current value in the array.
+      //If it is, swap positions and keep swapping backwards until you 
+      //get a value that is less than our current value. Once you get there, 
+      // insert your current value in that position. 
+
+      //inner loop executes 
+      for(j=i-1; j>-1 && arr[j]>value; j--){
+
+        arr[j+1]=arr[j];
+      }
+      //insert our current value into the place in the array where it is greater
+      //than the value before it. 
+      arr[j+1]=value;
+
+
+       }
+      return arr; 
+  }
+   
+</pre>
+<br> <h4> Worst Case Scenario: Number of comparisions: </h4> $T(n)=\Theta(1)+\Theta(2)+\Theta(3)+...+\Theta(n-1)=\Theta(1+2+3+...+n-1)=\Theta(\frac{n(n-1)}{2})\approx \Theta(n^2)$ 
+<h4> Time Complexity for worst case scenario: </h4> <mark>$T(n)=\Theta({n^2})$ </mark>
+
+<br>
+
+<center><h4>Performance: </h4>
+
+<br>
+<table>
+
+<tr>
+<td> Worst case complexity: $O(n^2)$</td>
+</tr>
+
+<tr>
+<td> Best case complexity: $O(n^2)$</td>
+</tr>
+
+<tr>
+<td> Average case complexity: $O(n^2)$</td>
+</tr>
+
+<tr>
+<td> Worst case space complexity: $O(n^2)$ total $O(1)$ auxiliary</td>
+</tr>
+</table></center>
+
+
+</div>
+
+
+
+<p>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;<u>A&D Problem #3: Merge Sort</h3></u>
+<br>
+<center><img src="images/merge_sort.jpg" width="350px" height="450px"></center>
+<center>Figure 1.3</center>
+
+<br>
+
+
+<div class="container">
+<p>
+   <pre><h5>
+  In Javascript, implement the Merge Sort algorithm and state the complexity 
+  for the worst case scenario. Refer to figure 1.3 above for illustration. 
+</pre>
+
+    <pre class = "prettyprint">
+  function merge(leftarr,rightarr ){
+
+    var result = []; 
+    var il = 0; 
+    var ir = 0; 
+    while(il < leftarr.length && ir < rightarr.length){
+       if(leftarr[il] < rightarr[ir]){
+
+            result.push(leftarr[il]);
+            il++;
+
+          }
+       else{
+
+            result.push(rightarr[ir])
+            ir++;
+
+           }
+
+     }
+
+      return result.concat(leftarr.slice(il)).concat(rightarr.slice(ir))
+  }
+
+  function mergeSort(arr){
+
+      if(arr.length < 2){
+
+        return arr;
+      }
+      else{
+
+       //divide 
+       var  mid=Math.floor(arr.length/2);
+       var left=arr.slice(0,mid);
+       var right=arr.slice(mid);
+       //conquer
+       //mergeSort:two (left and right) recursive calls with n/2 value 
+       //merge will execute n times to merge the left and right arrays.
+       return merge(mergeSort(left), mergeSort(right))
+
+      }
+  }
+
+   
+</pre>
+ <h4>Recurrence for the Merge Sort:</h4> $ T(n)=2T( \frac{n}{2})+ \Theta({n})$ 
+ <br>
+<h4>Using the Master Theorem for Divide and Conquer, the Time Complexity for worst case is: </h4>
+ <mark>$T(n)=\Theta({nlogn})$ </mark>
+
+ <br>
+
+<center><h4>Performance: </h4>
+
+<br>
+<table>
+
+<tr>
+<td> Worst case complexity: $\Theta(nlogn)$</td>
+</tr>
+
+<tr>
+<td> Best case complexity: $\Theta(nlogn)$</td>
+</tr>
+
+<tr>
+<td> Average case complexity: $\Theta(nlogn)$</td>
+</tr>
+
+<tr>
+<td> Worst case space complexity: $\Theta(n)$ auxiliary</td>
+</tr>
+</table></center>
+</div>
+
+
+
+    <script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="highlighter/prettify.css" /> 
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  
+      <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="click.js"></script>
+
+    <title>Template</title>
+    <script>
+    function fun1(x) {return Math.sin(x);  }
+function fun2(x) {return Math.cos(3*x);}
+
+function draw() {
+ var canvas = document.getElementById("canvas");
+ if (null==canvas || !canvas.getContext) return;
+
+ var axes={}, ctx=canvas.getContext("2d");
+ axes.x0 = .5 + .5*canvas.width;  // x0 pixels from left to x=0
+ axes.y0 = .5 + .5*canvas.height; // y0 pixels from top to y=0
+ axes.scale = 40;                 // 40 pixels from x=0 to x=1
+ axes.doNegativeX = true;
+
+ showAxes(ctx,axes);
+ funGraph(ctx,axes,fun1,"rgb(11,153,11)",1); 
+ funGraph(ctx,axes,fun2,"rgb(66,44,255)",2);
+}
+
+function funGraph (ctx,axes,func,color,thick) {
+ var xx, yy, dx=4, x0=axes.x0, y0=axes.y0, scale=axes.scale;
+ var iMax = Math.round((ctx.canvas.width-x0)/dx);
+ var iMin = axes.doNegativeX ? Math.round(-x0/dx) : 0;
+ ctx.beginPath();
+ ctx.lineWidth = thick;
+ ctx.strokeStyle = color;
+
+ for (var i=iMin;i<=iMax;i++) {
+  xx = dx*i; yy = scale*func(xx/scale);
+  if (i==iMin) ctx.moveTo(x0+xx,y0-yy);
+  else         ctx.lineTo(x0+xx,y0-yy);
+ }
+ ctx.stroke();
+}
+
+function showAxes(ctx,axes) {
+ var x0=axes.x0, w=ctx.canvas.width;
+ var y0=axes.y0, h=ctx.canvas.height;
+ var xmin = axes.doNegativeX ? 0 : x0;
+ ctx.beginPath();
+ ctx.strokeStyle = "rgb(128,128,128)"; 
+ ctx.moveTo(xmin,y0); ctx.lineTo(w,y0);  // X axis
+ ctx.moveTo(x0,0);    ctx.lineTo(x0,h);  // Y axis
+ ctx.stroke();
+}
+</script>
+    
+    </head>
+
+       <body onload="draw()">
+
+        <script src="highlighter/prettify.js"></script>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  <div class="jumbotron">
+
+
+     <center><h1>HTML5 CANVAS Problem Set #1</h1></center>
+         
+<!-- coderbyte21 -->
+
+        <center><canvas id="canvas" width="502" height="108"></canvas></center>
+        <center>Plot of sine and cosine function</center>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;HTML5 CANVAS Problem #1</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+   Using HTML5 Canvas, plot the sine and consine function as shown above
+</pre>
+</h5>
+
+index.html
+ <pre class = "prettyprint">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+    //insert javascript here
+      &lt;title&gt;Title &lt;/title&gt;
+    &lt;/head&gt;
+      &lt;body onload="draw()">
+      &lt;canvas id="canvas" width="502" height="108">&lt;/canvas>
+      &lt;/body&gt;
+  &lt;/html&gt;
+
+   
+</pre>
+
+</div>
+
+<p>
+
+  <div class = "container">
+  Javascript
+  <pre class = "prettyprint">
+  <p class = "canvas1" style="font-size: 10.4pt"> 
+  function fun1(x) {return Math.sin(x);  }
+  function fun2(x) {return Math.cos(3*x);}
+
+  function draw() {
+  var canvas = document.getElementById("canvas");
+  if (null==canvas || !canvas.getContext) return;
+
+    var axes={}, ctx=canvas.getContext("2d");
+    axes.x0 = .5 + .5*canvas.width;  // x0 pixels from left to x=0
+    axes.y0 = .5 + .5*canvas.height; // y0 pixels from top to y=0
+    axes.scale = 40;                 // 40 pixels from x=0 to x=1
+    axes.doNegativeX = true;
+
+    showAxes(ctx,axes);
+    funGraph(ctx,axes,fun1,"rgb(11,153,11)",1); 
+    funGraph(ctx,axes,fun2,"rgb(66,44,255)",2);
+  }
+
+  function funGraph (ctx,axes,func,color,thick) {
+    var xx, yy, dx=4, x0=axes.x0, y0=axes.y0, scale=axes.scale;
+    var iMax = Math.round((ctx.canvas.width-x0)/dx);
+    var iMin = axes.doNegativeX ? Math.round(-x0/dx) : 0;
+    ctx.beginPath();
+    ctx.lineWidth = thick;
+    ctx.strokeStyle = color;
+
+    for (var i=iMin;i < =iMax;i++) {
+    xx = dx*i; yy = scale*func(xx/scale);
+    if (i==iMin) ctx.moveTo(x0+xx,y0-yy);
+    else         ctx.lineTo(x0+xx,y0-yy);
+   }
+   ctx.stroke();
+  }
+  
+  function showAxes(ctx,axes) {
+    var x0=axes.x0, w=ctx.canvas.width;
+    var y0=axes.y0, h=ctx.canvas.height;
+    var xmin = axes.doNegativeX ? 0 : x0;
+    ctx.beginPath();
+    ctx.strokeStyle = "rgb(128,128,128)"; 
+    ctx.moveTo(xmin,y0); ctx.lineTo(w,y0);  // X axis
+    ctx.moveTo(x0,0);    ctx.lineTo(x0,h);  // Y axis
+    ctx.stroke();
+  }
+</pre>
+   </div>
+  
+    <button id = "canvasbutton1" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+    
+    <script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>

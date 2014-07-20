@@ -1,0 +1,508 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <link rel="stylesheet" href="highlighter/prettify.css" />
+      <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Javascript Practice</title>
+     <!-- Insert Javascript file -->
+     <script src="click.js"></script>
+
+  </head>
+<body>
+	<script src="highlighter/prettify.js"></script>
+		<nav class="navbar navbar-default" role="navigation">
+  	<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+	<div class="jumbotron">
+		 <center><h1>Javascript Practice Problems</h1></center>
+<!-- coderbyte11 -->
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 11</h3>
+<div class="container">
+<p>
+      <pre style="border-style:solid; border-color:#787878 ;"><h5>
+ 
+  Using the JavaScript language, have the function ABCheck(str) take 
+  the str parameter being passed and return the string true if the 
+  characters a and b are separated by exactly 3 places anywhere in the 
+  string at least once (ie. "lane borrowed" would result in true because
+  there is exactly three characters between a and b). Otherwise return 
+  the string false.
+  </pre> 
+    <pre class = "prettyprint">
+   Input = "after badly "  Output = "false"
+   Input = "Laura sobs "   Output = "true" </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages11" style="font-size: 10.4pt"> 
+  function ABCheck(str) { 
+    var nstr=str.split(" ").join("");
+
+    for(var i=0; i&lt;nstr.length; i++){
+        if(nstr[i] === "a"){
+      
+           if(nstr[i+3] === "b"){
+             return true; 
+           }
+        
+         }
+    }
+                                
+    return false;     
+  }</p>
+</pre>
+   </div>
+  
+    <button id = "newanswer11" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+<!-- coderbyte12 --> 
+
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 12</h3>
+<div class="container">
+<p>
+   <pre style="border-style:solid; border-color:#787878 ;"><h5>
+ 
+Using the JavaScript language, have the function VowelCount(str) 
+take the str string parameter being passed and return the number of 
+vowels the string contains (ie. "All cows eat grass" would return 5). 
+Do not count y as a vowel for this challenge. 
+</pre>
+<pre class = "prettyprint">
+ Input = "hello"      Output = 2
+ Input = "coderbyte"  Output = 3
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages2" style="font-size: 10.4pt"> 
+
+  function VowelCount(str) { 
+
+      var vo= str.replace(/[^aeiou]/g,"")
+      return vo.length
+  }</p></pre>
+
+   </div>
+  
+    <button id = "newanswer2" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+<!-- coderbyte13 -->
+
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 13</h3>
+<div class="container">
+<p>
+   <pre style="border-style:solid; border-color:#787878 ;"><h5>
+ Using the JavaScript language, have the function WordCount(str) 
+ take the str string parameter being passed and return the number of 
+ words the string contains (ie. "Never eat shredded wheat" would return
+ 4). Words will be separated by single spaces. 
+</pre>
+  <pre class = "prettyprint">
+  Input = "Hello World"   Output = 2
+  Input = "one 22 three"  Output = 3 </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages13" style="font-size: 10.4pt"> 
+  function WordCount(str) { 
+
+    var x=str.split(" ") 
+    return x.length
+         
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer13" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+<!-- coderbyte14 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 14</h3>
+<div class="container">
+<p>
+   <pre style="border-style:solid; border-color:#787878 ;"><h5>
+ Using the JavaScript language, have the function ExOh(str) take 
+ the str parameter being passed and return the string true if there is 
+ an equal number of x's and o's, otherwise return the string false. Only 
+ these two letters will be entered in the string, no punctuation or 
+ numbers. For example: if str is "xooxxxxooxo" then the output should 
+ return false because there are 6 x's and 5 o's. 
+</pre>
+ <pre class = "prettyprint">
+  Input = "xooxxo"   Output = "true"
+  Input = "x"        Output = "false" </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages4" style="font-size: 10.4pt">
+  function ExOh(str) { 
+    var co=0
+    var cx=0
+    var x=str.split("") 
+    for(var i=0; i&lt;x.length; i++) {
+  
+      if (x[i]==="o"){
+      
+          co=co+1
+          }
+      else if (x[i]==="x"){
+         cx=cx+1
+      }
+      
+    }
+    if (co===cx){
+    return true
+    }
+    else{
+    return false 
+    }
+}</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer4" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+<!-- coderbyte15 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 15</h3>
+<div class="container">
+<p>
+   <pre style="border-style:solid; border-color:#787878 ;"><h5>
+  Using the JavaScript language, have the function Palindrome(str) take
+  the str parameter being passed and return the string true if the
+  parameter is a palindrome, (the string is the same forward as it is 
+  backward) otherwise return the string false. For example: "racecar" is 
+  also "racecar" backwards. Punctuation and numbers will not be part of the
+  string. 
+ </pre>
+
+   <pre class = "prettyprint">
+   Input = "never odd or even"   Output = "true"
+   Input = "eye"                 Output = "true"</pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages5" style="font-size: 10.4pt">
+  function Palindrome(str) { 
+
+    var x=str.split(" ").join("").split("");
+    if(x.join("")===x.reverse().join("")){
+      
+        return true;
+    } 
+    else{
+   
+        return false;
+    }
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer5" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+    <!-- coderbyte16 -->
+     <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 16</h3>
+<div class="container">
+<p >
+   <pre style="border-style:solid; border-color:#787878 ;"><h5>
+ Using the JavaScript language, have the function ArithGeo(arr) take 
+ the array of numbers stored in arr and return the string "Arithmetic" 
+ if the sequence follows an arithmetic pattern or return "Geometric" if
+ it follows a geometric pattern. If the sequence  doesn't follow either 
+ pattern return -1. An arithmetic sequence is one where the difference 
+ between each of the numbers is consistent, where as in a geometric 
+ sequence, each term after the first is multiplied by some constant or
+ common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example:
+ [2, 6, 18, 54]. Negative numbers may be entered as parameters, 0 will
+ not be entered, and no array will contain all the same elements.
+</pre>
+
+ <pre class="prettyprint" align="justify">
+  Input = 5,10,15    Output = "Arithmetic"
+  Input = 2,4,16,24  Output = -1 </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages6" style="font-size: 10.4pt">
+  function ArithGeo(arr) { 
+
+    var first=arr[0];
+    var second=arr[1];
+    var third=arr[2]; 
+ 
+ 
+    if ((second-first) === (third-second)){
+ 
+       return "Arithmetic";
+ 
+      }
+    else if ((second/first) === (third)/(second)){
+ 
+      return "Geometric";
+ 
+      }
+    else {
+ 
+      return -1;
+    }
+         
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer6" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+        <!-- coderbyte17 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 17</h3>
+<div class="container">
+<p >
+  <pre style="border-style:solid; border-color:#787878 ;" align="left"><h5>
+Using the JavaScript language, have the function ArrayAdditionI(arr) 
+take the array of numbers stored in arr and return the string true if any 
+combination of numbers in the array can be added up to equal the largest
+number in the array, otherwise return the string false. For example: if arr 
+contains [4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10
++ 3 = 23. The array will not be empty, will not contain all the same elements, 
+and may contain negative numbers. 
+ </pre>
+  <pre class = "prettyprint">
+ Input = 5,7,16,1,2   Output = "false"
+ Input = 3,5,-1,8,12  Output = "true" </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages7" style="font-size: 10.4pt">
+  function ArrayAdditionI(arr) { 
+    arr.sort(function(a,b){return a - b})
+    var largest = arr.pop();
+    var sum = 0;
+    for (var i = 0; i&lt;arr.length; i++){
+      sum += arr[i];
+      for (var j = 0; j&lt;arr.length; j++){
+       if (i != j) {
+         sum += arr[j];
+         if (sum == largest) {
+           return true;
+         }
+       }
+      }
+      for (var k = 0; k&lt;arr.length; k++) {
+         if (i != k) {
+           sum -= arr[k];
+           if (sum == largest) {
+             return true;
+           }
+         }
+       }
+       sum = 0;
+     } 
+     return false; 
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer7" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+       <!-- coderbyte18 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 18</h3>
+<div class="container">
+<p>
+   <pre style="border-style:solid; border-color:#787878 ;" align="left"><h5>
+ Using the JavaScript language, have the function LetterCountI(str) take the
+ str parameter being passed and return the first word with the greatest number
+ of repeated letters. For example:"Today, is the greatest day ever!" should
+ return greatest because it has 2 e's (and 2 t's) and it comes before ever 
+ which also has 2 e's. If there are no words with repeating letters return -1.
+ Words will be separated by spaces. 
+</pre>
+ <pre class = "prettyprint">
+ Input = "Hello apple pie"  Output = "Hello"
+ Input = "No words"         Output = -1</pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages8" style="font-size: 10.4pt">
+  function LetterCountI(str){
+
+    var x=str.split(" ") 
+    var count=0; 
+ 
+   for(var i=0; i&lt;x.length; i++){//getting the word
+     var word=x[i]
+     for(var j=0; j&lt;word.length; j++){//getting the letter
+       var letter=word[j]
+       for(var k=0; k&lt;word.length; k++){//comparing word
+         if(j!==k){
+            if(letter===word[k]){
+               count=count+1; 
+           
+                 if(count>1){
+              
+                   return word;  
+                 }
+            }
+         }
+       }
+     
+     }
+    }
+   
+   return -1;
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer8" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+          <!-- coderbyte19 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 19</h3>
+<div class="container">
+<p>
+   <pre style="border-style:solid; border-color:#787878 ;" align="left"><h5>
+ Using the JavaScript language, have the function SecondGreatLow(arr) take the
+ array of numbers stored in arr and return the second lowest and second
+ greatest numbers, respectively, separated by a space. For example: if arr
+ contains [7, 7, 12, 98, 106] the output should be 12 98.The array will not be
+ empty and will contain at least 2 numbers. It can get tricky if there's just
+ two numbers! 
+</pre>
+<pre class = "prettyprint">
+  Input = 1, 42, 42, 180  Output = "42 42"
+  Input = 4, 90           Output = "90 4" </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages9" style="font-size: 10.4pt">
+    function SecondGreatLow(arr) { 
+         var uniq=[arr[0]]
+         for(var i=0; i&lt;arr.length;i++){
+
+             if(uniq.indexOf(arr[i]) === -1){
+ 
+                 uniq.push(arr[i])
+ 
+             }
+         }
+
+        var arrx=uniq.sort(function(a,b){return a-b})
+        var seclowest=arrx[1];
+        var rearrx=arrx.reverse()
+        var secmax=rearrx[1]
+        return seclowest+ " "+secmax; 
+    }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer9" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+              <!-- coderbyte10 -->
+
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 20</h3>
+<div class="container">
+<p>
+   <pre style="border-style:solid; border-color:#787878 ;" align="left"><h5>
+Using the JavaScript language, have the function DivisionStringified(num1,num2
+take both parameters being passed, divide num1 by num2, and return the result
+as a string with properly formatted commas. If an answer is only 3 digits
+long, return the number with no commas (ie. 2 / 3 should output "1"). For
+example: if num1 is 123456789 and num2 is 10000 the output should be "12,345".
+</pre>
+  <pre class = "prettyprint">
+ Input: num1= 5   & num2 = 2   Output = "3"
+ Input: num1=6874 & num2 = 67  Output = "103"</pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages10" style="font-size: 10.4pt">
+  function DivisionStringified(num1,num2) { 
+
+     var div=Math.floor(num1/num2); 
+     if(div.toString().length>3){
+        var x=[];
+        var co=div.toString().split("").reverse()
+        var total=0
+        for(var i=0; i&lt;co.length;i++){
+          total=total+1
+          x.push(co[i])
+          if(total%3===0){
+             x.push(",");
+            }
+         }
+           return x.reverse().join("");
+       }
+      else{
+          return div;
+          }
+  }</p>
+</pre>
+
+   </div>
+  
+    <button id = "newanswer10" type = "button" class = "btn btn-primary btn-lg">Answer</button>
+
+           
+
+<script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <link rel="stylesheet" href="highlighter/prettify.css" />
+      <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Javascript Practice</title>
+     <!-- Insert Javascript file -->
+     <script src="click.js"></script>
+
+  </head>
+<body>
+	<script src="highlighter/prettify.js"></script>
+		<nav class="navbar navbar-default" role="navigation">
+  	<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+	<div class="jumbotron">
+		 <center><h1>Javascript Practice Problems</h1></center>
+<!-- coderbyte21 -->
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 21</h3>
+<div class="container">
+<p>
+   <pre><h5>
+ Using the JavaScript language, have the function CountingMinutesI(str) take
+ the str parameter being passed which will be two times (each properly
+ formatted with a colon and am or pm) separated by a hyphen and return the
+ total number of minutes between the two times. The time will be in a 12 hour
+ clock format. For example: if str is 9:00am-10:00am then the output should be
+ 60.If str is 1:00pm-11:00am the output should be 1320. 
+</pre>
+<pre class="prettyprint">
+
+  Input = "12:30pm-12:00am"  Output = 690
+  Input = "1:23am-1:08am"    Output = 1425
+
+	    </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages21" style="font-size: 10.4pt"> 
+  function CountingMinutesI(str) { 
+    var times=str.split("-"); 
+    var time1=times[0].slice(0,times[0].length-2).split(":"); 
+    var time1ap=times[0][times[0].length-2]; 
+    var time2=times[1].slice(0,times[0].length-2).split(":");
+    var time2ap=times[1][times[1].length-2]; 
+    var time1min=parseInt(time1[0])*60+ parseInt(time1[1]); 
+    var time2min=parseInt(time2[0])*60+parseInt(time2[1]); 
+  
+    if(time1ap ==="p" && time1[0]!=="12"){
+     
+     time1min+=12*60;
+     }
+     
+     else if(time2ap==="p" && time2[0] !== "12"){
+     
+     time2min+=12*60; 
+     }
+     
+     else if(time1ap === "a" && time1[0]==="12"){
+     time1min-=(12*60); 
+     
+     }
+     
+     else if(time2ap === "a" && time2[0]==="12"){
+     time2min-=(12*60); 
+     
+     }
+     
+     if (time1min>time2min){
+     return ((24*60)-time1min) +time2min; }
+     else{
+     
+     return time2min-time1min; 
+     }
+}</p>
+
+</pre>
+   </div>
+  
+    <button id = "newanswer21" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+    <!-- coderbyte22 -->
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 22</h3>
+<div class="container">
+<p>
+   <pre><h5>
+  Using the JavaScript language, have the function MeanMode(arr) take the
+  array of numbers stored in arr and return 1 if the mode equals the mean, 0
+  if they don't equal each other (ie. [5, 3, 3, 3, 1] should return 1
+  because the mode (3) equals the mean (3)). The array will not be empty,
+  will only contain positive integers, and will not contain more than one
+  mode. 
+</pre>
+<pre class="prettyprint">
+  Input = 1, 2, 3        Output = 0
+  Input = 4, 4, 4, 6, 2  Output = 1
+
+      </pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages22" style="font-size: 10.4pt"> 
+ function MeanMode(arr) { 
+  var total=0; 
+  var sum=0
+  var count=1; 
+  var mode=0; 
+    for(var i=0; i&lt;arr.length; i++){
+      total=total+arr[i];
+        for (var j=0; j&lt;arr.length;j++){
+          if(arr[i]===arr[j]){
+              sum=sum+1; 
+            if(sum>count){
+                count=sum; 
+                mode=arr[i]; 
+               }
+             }
+   
+             }
+   
+        sum=0
+      }
+  var mean=Math.round(total/arr.length);
+  if(mean===mode){
+    return 1;
+  }
+  else{
+    return 0; 
+
+    }
+}</p>
+
+</pre>
+   </div>
+  
+    <button id = "newanswer22" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+        <!-- coderbyte23 -->
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 23</h3>
+<div class="container">
+<p>
+   <pre><h5>
+  Using the JavaScript language, have the function DashInsert(num) insert
+  dashes ('-') between each two odd numbers in num. For example: if num is
+  454793 the output should be 4547-9-3.Don't count zero as an odd number. 
+</pre>
+<pre class="prettyprint">
+   Input = 99946    Output = "9-9-946"
+   Input = 56730    Output = "567-30" 
+</pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages23" style="font-size: 10.4pt"> 
+  function DashInsert(num) { 
+
+     var x=num.toString(); 
+     var p=[];
+     for(var i=0; i&lt;x.length;i++){
+
+        p.push(x[i])
+        if(i&lt;x.length-1 && parseInt(x[i])%2!==0 && parseInt(x[i+1])%2!==0){
+             p.push("-"); 
+   
+        }
+     }
+        return p.join("")
+
+  }</p>
+</pre>
+   </div>
+  
+    <button id = "newanswer23" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 24</h3>
+<div class="container">
+<p>
+   <pre><h5>
+  Using the JavaScript language, have the function SwapCase(str) take the 
+  str parameter and swap the case of each character. For example: if str is
+  "Hello World" the output should be hELLO wORLD.Let numbers and symbols
+  stay the way they are. 
+</pre>
+<pre class="prettyprint">
+   Input = "Hello-LOL"    Output = "hELLO-lol"
+   Input = "Sup DUDE!!?"  Output = "sUP dude!!?"
+</pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages24" style="font-size: 10.4pt"> 
+  function SwapCase(str) { 
+    p=[]
+    var x=str.split("")
+    for(var i=0; i&lt;x.length; i++){
+
+       if(x[i]===x[i].toUpperCase()){
+   
+           p.push(x[i].toLowerCase());
+       }
+       else{
+           p.push(x[i].toUpperCase());
+       }
+    }
+     return p.join("")
+  }</p>
+</pre>
+   </div>
+  
+    <button id = "newanswer24" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Coderbyte Problem 25</h3>
+<div class="container">
+<p>
+   <pre><h5>
+  Using the JavaScript language, have the function NumberSearch(str) take the
+  str parameter,search for all the numbers in the string, add them together,
+  then return that final number.For example: if str is "88Hello 3World!" the
+  output should be 91. You will have to differentiate between single digit
+  numbers and multiple digit numbers like in the example above. So "55Hello"
+  and "5Hello 5" should return two different answers. Each string will contain
+  at least one letter or symbol.
+</pre>
+<pre class="prettyprint">
+   Input = "75Number9"          Output = 84
+   Input = "10 2One Number*1*"  Output = 13
+
+</pre></h5>
+</div>
+<p>
+  <div class = "container">
+  <pre class = "prettyprint">
+  <p class = "messages25" style="font-size: 10.4pt"> 
+  
+function NumberAddition(str) { 
+
+  var x=str.replace(/\D/g," ").split(" ").filter(function(x) {return x!==""})
+  var total=0;
+    for(var i=0; i&lt;x.length; i++){
+        total=total+parseInt(x[i])
+    }
+        return total; 
+}</p>
+</pre>
+   </div>
+  
+    <button id = "newanswer25" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+    
+
+
+
+<script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>
+
+	

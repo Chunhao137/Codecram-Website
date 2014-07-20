@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="highlighter/prettify.css" /> 
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  
+      <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="click.js"></script>
+
+    <title>Template</title>
+    
+    </head>
+
+       <body>
+
+        <script src="highlighter/prettify.js"></script>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  <div class="jumbotron">
+
+
+     <center><h1>jQuery Practice Problem Set #2</h1></center>
+         
+<!-- coderbyte21 -->
+
+
+
+<div id="outline2">
+<button class="yelp"><center>Yelp</center></button><br>
+<button class="cnn"><center>CNN</center></button><br>
+<button class="google"><center>Google</center></button>
+</div>
+<p>
+<center>Hover over the bars to see the animated effect. <br>Click the bar to take you to the specified site.</center>
+
+
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;jQuery Problem #1</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+   Using jQuery, create bars that animate when you hover over them. Make it
+   such that when you click on the bars it will take you to the website you
+   designate. See above for demontration. 
+</pre>
+</h5>
+
+index.html
+ <pre class = "prettyprint">
+  
+   &lt;!DOCTYPE html&gt;
+   &lt;html&gt;
+    &lt;head&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.
+    min.js">&lt;/script>
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-
+    .min.js">&lt;/script>
+    &lt;/head&gt;
+      &lt;body&gt;
+      &lt;div id="outline2">
+      &lt;button class="yelp">&lt;center>Yelp&lt;/center>&lt;/button>&lt;br>
+      &lt;button class="cnn">&lt;center>CNN&lt;/center>&lt;/button>&lt;br>
+      &lt;button class="google">&lt;center>Google&lt;/center>&lt;/button>
+      &lt;/div>&lt;center>Hover over the bars to see the animated effect.&lt;br>
+      Click the bar to take you to the specified site.&lt;/center>
+      &lt;/body&gt;
+  &lt;/html&gt;
+
+   
+</pre>
+style.css
+<pre class = "prettyprint">
+  .yelp{
+
+     height: 30px;
+     width: 100px; 
+     background-color: #66CCCC;
+     color: white;  
+     margin: 0px;
+     }
+
+  .cnn{
+
+     height: 30px;
+     width: 100px; 
+     background-color: red;
+     color: white;  
+     margin: 0px;
+     }
+
+   .google{
+
+     height: 30px;
+     width: 100px; 
+     background-color: #91bd09;
+     color: white;  
+     margin: 0px;
+  }
+
+   #outline2{
+     margin: auto; 
+     outline-style:solid;
+     outline-color: green;
+     margin-top: 50px;
+     height: 90px;
+     width: 200px;
+    }
+  
+</pre>
+
+</div>
+
+<p>
+
+  <div class = "container">
+  click.js
+  <pre class = "prettyprint">
+  <p class = "japp5" style="font-size: 10.4pt"> 
+    $(".yelp").hover(function(){
+        $(this).filter(':not(:animated)').animate({ width: "200px" });
+        }, function() {
+        $(this).animate({ width: "100px" });
+        });
+
+        $(".yelp").click(function(){
+
+        window.location.href = "http://www.yelp.com/";
+
+        })
+
+        $(".cnn").hover(function(){
+        $(this).filter(':not(:animated)').animate({ width: "200px" });
+        }, function() {
+        $(this).animate({ width: "100px" });
+        });
+
+        $(".cnn").click(function(){
+
+        window.location.href = "http://www.cnn.com";
+
+        })
+
+        $(".google").hover(function(){
+        $(this).filter(':not(:animated)').animate({ width: "200px" });
+        }, function() {
+        $(this).animate({ width: "100px" });
+        });
+
+        $(".google").click(function(){
+
+        window.location.href = "https://www.google.com";
+
+        })
+</pre>
+   </div>
+  
+    <button id = "jappbutton5" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+    <div id="slideshow">
+    <div>
+        <img src="images/ocean1.jpg">
+    </div>
+    <div>
+        <img src="images/ocean2.jpg">
+    </div>
+    <div>
+        <img src="images/ocean3.jpg">
+    </div>
+</div>
+<center> Slideshow of images  </center> 
+<br>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;jQuery Problem #2</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+   Using jQuery, produce slideshow as demonstrated above for three images. 
+</pre>
+</h5>
+
+index.html
+ <pre class = "prettyprint">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.
+    min.js">&lt;/script>
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-
+    .min.js">&lt;/script>
+    &lt;/head&gt;
+      &lt;body&gt;
+      &lt;div id="slideshow">
+        &lt;div>
+          &lt;img src="ocean1.jpg">
+        &lt;/div>
+        &lt;div>
+          &lt;img src="ocean2.jpg">
+        &lt;/div>
+        &lt;div>
+          &lt;img src="ocean3.jpg">
+        &lt;/div>
+      &lt;/div>
+      &lt;center> Slideshow of images  &lt;/center> 
+      &lt;/body&gt;
+  &lt;/html&gt;
+
+   
+</pre>
+style.css
+<pre class = "prettyprint">
+  #slideshow {
+      margin: 50px auto;
+      position: relative;
+      width: 260px;
+      height: 350px;
+      padding: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+   }
+   #slideshow > div {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+    }
+
+   #slideshow img {
+      max-width:300px;
+      max-height:300px;
+      margin-left: 10px;
+      margin-top: 10px
+  }
+  
+</pre>
+
+</div>
+
+<p>
+
+  <div class = "container">
+  click.js
+  <pre class = "prettyprint">
+  <p class = "japp6" style="font-size: 10.4pt"> 
+    $("#slideshow > div:gt(0)").hide();
+    setInterval(function () {
+    $('#slideshow > div:first')
+        .fadeOut(2000)
+        .next()
+        .fadeIn(2000)
+        .end()
+        .appendTo('#slideshow');
+        }, 3000);
+</pre>
+   </div>
+  
+    <button id = "jappbutton6" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+  <script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>

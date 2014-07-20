@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="highlighter/prettify.css" /> 
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  
+      <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="click.js"></script>
+
+    <title>Template</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+    </head>
+
+       <body>
+         <NOSCRIPT>
+    <DIV STYLE="color:#CC0000; text-align:center">
+      <B>Warning: <A HREF="http://www.math.union.edu/locate/jsMath">jsMath</A>
+      requires JavaScript to process the mathematics on this page.<BR>
+      If your browser supports JavaScript, be sure it is enabled.</B>
+    </DIV>
+    <HR>
+    </NOSCRIPT>
+
+        <script src="highlighter/prettify.js"></script>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  <div class="jumbotron">
+
+
+     <center><h1>Node.js Problems Fundamentals PartII </h1></center>
+         
+<!-- coderbyte21 -->
+<br>
+</br>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp; Problem #1</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  Describe the difference between the traditional threaded model versus the Node.js way
+</pre>
+</h5>
+    <pre><h5>
+  
+ <img src="images/threaded_model.jpg" width="682px">
+ <br>
+ If all threads are in use,every incoming connection is blocked. This can cause a huge 
+ traffic jam on high-throughput applications. 
+ <br> 
+
+ <img src="images/node_way.jpg" width="682px">
+ <br>
+ Node.js uses a single thread. Instead of performing I/O ourselves, we dispatch I/O events
+ to Node's event loop. It passes I/O requests to the event loop, along with callbacks.
+ Your code then goes to sleep, uses no system resources, will be notified via callback
+ when I/O is complete. 
+
+   
+</pre>
+</div>
+
+<p>
+
+  <h3>&nbsp;&nbsp;&nbsp;&nbsp; Problem #2</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  What are DIRTy applications?   
+</pre>
+</h5>
+    <pre><h5>
+  DIRT is an acronym for Data-Intensive Real Time applications. These are the kinds of 
+  applications node is designed for. 
+
+
+   
+</pre>
+</div>
+
+ <h3>&nbsp;&nbsp;&nbsp;&nbsp;Problem #3</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  Node.js allows us to make use of command line inputs by providing us with their
+  'readline' module. Write a simple node.js app using their readline module as well as
+  the question method to ask for a user's name and print to the console "Hello + username".
+  You can find the Node.js modules here: <a href="http://nodejs.org/api/">Node.js modules</a> 
+</pre>
+</h5>
+helloname.js
+    <pre class = "prettyprint"><h5>
+
+  var r1=require("readline"); //require the readline module
+  var interface=r1.createInterface(process.stdin, process.stdout, null); //create a interface object
+
+  interface.question('What is your name? ', function(answer) {
+  console.log("Hello, "+ answer + " !");
+
+   //once we start the node.js server it will never terminate
+   //we can fix this by closing the open interface object and
+   //destroying the standard in process at the end of the callback. 
+
+  interface.close();
+  process.stdin.destroy(); 
+  });
+
+   //To run the app, go to terminal and type: node helloname.js
+
+
+   
+</pre>
+</div>
+
+ <h3>&nbsp;&nbsp;&nbsp;&nbsp; Problem #4</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  Create a Transmission Control Protocol (TCP) listener in Node.js. In your app, echo the
+  user's reponse using the pipe method and also include a counter for every new client 
+  connection. Make sure to log the client connection count to the console so you can see
+  it. Use telnet to connect to your server. For more info on TCP and Telnet click the 
+  follwing links: <a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>  and <a href="http://en.wikipedia.org/wiki/Telnet"> Telnet </a>
+</pre>
+</h5>
+tcplistener.js
+    <pre class="prettyprint"><h5>
+  
+    var net=require("net"); //require net module 
+
+    var client_count=0; //count client connections.
+    var server = net.createServer(function (socket){//create server object
+        client_count++
+        console.log("client" + client_count+ "connected" )
+        //server definition
+      socket.write("Connected to server.\r\n" );//when a connection is made. We send the client 
+                                                // a message over the open connection letting them
+                                                //know they are connected using the write command. 
+
+        socket.pipe(socket)//we pipe any additional traffic over the specified port back to the client
+                           //using the pipe method. This will cause the server to echo any message sent 
+                           //by the client right back. 
+
+     //now we have to tell the server to start listening and what port and sever address
+     // to listen in on before we can run out app. 
+
+     
+
+
+    }); 
+
+     server.listen(8080, "127.0.0.1") //listen in on port 8080 on localhost.
+</pre>
+
+ <pre><h5>
+  Launch the server.  
+  <br>
+  <img src="images/tcpt1.jpg" width="500px;">
+  <br>
+  Pull up another terminal window and use telnet to connect to our server. This is our 1st 
+  client. Also, you can see when we type in hello, it automatically pipes or echos back
+  hello. You should see "client 1 connected" in the launch window.
+  <br>
+  <img src="images/tcpt2.jpg" width="500px;" height="142px;">
+  <br>
+  Pull up another terminal window and use telnet to connect to our server. This is our 
+  second client.You should see "client 2 connected" in the launch window. 
+  <br>
+   <img src="images/tcpt3.jpg" width="500px;" height="142px;">
+
+
+   **With about ten lines of code we have a scalable multi-tenant server. Since Node.js is 
+   built on the V8 javascript engine it is able to handle a lot of simultaneous connection
+   This is becasue node does not need to start a new thread for every connetion that
+   comes in which is very expensive. Instead, Node's single process event loop takes
+   control and execute each callback functions when needed. That means that every client
+   doesn't need a new thread and our code never blocks waiting for I/O or waiting for a
+   response. This saves a lot of processing power and removes the common bottleneck of I/O
+   problems making node scale quite well. 
+</pre>
+</div>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Problem #5</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  Create a webserver with Node.js. Do a switch case for three options. First case is to 
+  say, "Horray!" when you have successfully connected to the server. Second is to display
+  a html page of your own design. Third is to display a twitter feed of your own choice. 
+</pre>
+</h5>
+    server.js
+    <pre class="prettyprint"><h5>
+   var http = require('http'); //require the http module
+   var url = require('url');
+   var fs = require('fs');
+   var server; 
+
+
+   server = http.createServer(function(request,response){ // declare http server object
+                                                          //callback has inputs of request and reponse.
+    var path = url.parse(request.url).pathname; // pathname:The path section of the URL, that comes after 
+                                               //the host and before the query, including the initial slash 
+                                               //if present.
+
+    switch(path){
+
+    case '/case1':
+    response.writeHead(200, {'Content-Type':'text/plain'});//Sends a response header to the request. In this case, our 
+                                                           //code status code is 200.  
+    response.write('Horray!\n'); //displays message on console
+    response.end(); //end response stream
+
+    case '/case2':
+        fs.readFile(__dirname + '/index.html', function(err, data){
+        if (err) return send404(response);
+              response.writeHead(200, {'Content-Type': 'text/html'})
+              response.write(data, 'utf8');
+              response.end();
+       });   
+
+    case '/case3':
+       fs.readFile(__dirname + '/twitter.html', function(err,data){
+       if(err) return send404(response); 
+              response.writeHead(200, {'Content-Type': 'text/html'})
+              response.write(data, 'utf8');
+              response.end(); 
+      });
+
+      break;  
+
+         default: send404(response); //If the client request a route we don't know.
+                           //we just want to display an error message.  
+
+       }
+
+    });
+
+   send404 = function(response){ //error function
+
+      response.writeHead(404);
+      response.write('Error:404\n');//displays error message if user enters a path
+                                   // we don't know about. 
+      response.end(); 
+    }
+ 
+    server.listen(8080); //listen on the 8080 port
+
+
+
+
+   
+</pre>
+index.html
+<pre class="prettyprint">
+
+   &lt;!DOCTYPE html&gt;
+   &lt;html>
+   &lt;head> &lt;title> My page&lt;/title>
+
+   &lt;/head>
+   &lt;body style="background-color: #00FFFF;">
+   &lt;center>
+   &lt;h1> Welcome to Codecram! &lt;/h1> 
+   &lt;br>
+   Learn web developement through problem solving!
+   &lt;/center>
+
+  &lt;/body>
+  &lt;/html>
+</pre>
+twitter.html
+<pre class="prettyprint">
+  &lt;html>
+  &lt;head>
+  &lt;title>Twitter&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;!-- got to https://twitter.com/settings/widgets. Click create new and copy the code  into your html document. -->
+    &lt;a class="twitter-timeline" href="https://twitter.com/cwcello" data-widget-
+    id="452868515020541952">Tweets by @cwcello&lt;/a>
+    &lt;script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.
+    location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js
+    src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}
+    document,"script","twitter-wjs");&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </pre> 
+  Implementation
+  <pre>
+    launch the server using node
+    <img src="images/webserver1.jpg">
+
+    Test your first case. It should say Horray!
+    <img src="images/webserver2.jpg">
+
+    Test your second case by going to your browser and typing in 
+    http://localhost:8080/case2.
+    <img src="images/webserver3.jpg">
+
+    Test your third case by going to your browser and typing in 
+    http://localhost:8080/case3.
+     <img src="images/webserver4.jpg">
+
+
+</div>
+    <script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>

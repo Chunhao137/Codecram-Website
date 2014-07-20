@@ -1,0 +1,284 @@
+body{
+padding: 0px;
+width: 100%;
+height: 100%;
+margin: center;
+font-family: Arial;
+
+}
+#header{
+border:2px solid #a1a1a1;
+padding:10px 40px; 
+border-radius:25px;
+width: auto;
+height: auto;
+background: #94AACB;
+
+}
+.navbar-brand {
+     font-weight: bold;
+}
+.navbar-default{
+
+ background: white;
+}
+.navbar-default .navbar-brand {
+    color: #c0392b;
+}
+
+#links h3{
+
+	margin-left: 50px; 
+}
+
+button{
+ margin-left: 30px;
+   margin-top: 20px; 
+   margin-bottom: 20px; 
+}
+
+
+
+}
+#rect1 {
+border:2px solid #a1a1a1;
+padding:10px 40px; 
+background:#99FFFF;
+width:750px;
+border-radius:25px;
+margin-left: 20px; 
+margin-top: 30px; 
+}
+
+.container{
+
+   margin-left: 10px; 
+}
+
+#footer{ 
+height: 40px; 
+border-top: 1px solid gray; 
+text-align: center; 
+margin-bottom: 20px;
+
+}
+
+
+     
+      .controls {
+        margin-top: 16px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        padding: 0 11px 0 13px;
+        width: 400px;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        text-overflow: ellipsis;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+        margin-left: -1px;
+        padding-left: 14px;  /* Regular padding-left + 1. */
+        width: 401px;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+  #outline{
+
+
+  outline-style:solid;
+  outline-color: green;
+    margin-top: 100px; 
+   width: 200px;
+    height: 200px;
+
+}
+
+#outline1{
+
+
+  outline-style:solid;
+  outline-color: green;
+    margin-top: 100px; 
+    margin-left: 30px;
+   width: 80%;
+    height: 200px;
+
+}
+
+
+
+#circle1 {
+    width: 200px;
+    height: 200px;
+    margin-top: 100px; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    background: #4679BD;
+
+
+}
+
+#circle2 {
+    width: 200px;
+    height: 200px;
+    margin-top: 100px; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    background: #4679BD;
+
+
+}
+
+.square1 {
+    width: 100px;
+    height: 100px;
+    background: #4679BD;
+    position:absolute;
+
+
+}
+#square2 {
+    width: 100px;
+    height: 100px;
+    background: #4679BD;
+    position:absolute;
+
+
+}
+
+.pic {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-left: 355px; 
+    margin-top: -180px;
+}
+
+
+.game {
+  width:500px;
+  height:500px;
+  position:relative; 
+  border:2px solid #000;
+  margin-left: 300px; 
+}
+.player {
+  width:25px; 
+  height:25px; 
+  background-color:#000000; 
+  position:absolute;  
+}
+.solid {
+  position:absolute; 
+}
+.coin {
+  width:10px;
+  height:10px;
+  position:absolute; 
+  background:rgba(255,204,0,1);
+}
+
+.yelp{
+
+   height: 30px;
+   width: 100px; 
+   background-color: #66CCCC;
+   color: white;  
+   margin: 0px;
+
+
+}
+.cnn{
+
+   height: 30px;
+   width: 100px; 
+   background-color: red;
+   color: white;  
+   margin: 0px;
+
+
+}
+
+.google{
+
+   height: 30px;
+   width: 100px; 
+   background-color: #91bd09;
+   color: white;  
+    margin: 0px;
+
+}
+
+#outline2{
+ margin: auto; 
+ outline-style:solid;
+  outline-color: green;
+  margin-top: 50px;
+
+    
+    height: 90px;
+    width: 200px;
+}
+
+#slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 260px;
+    height: 350px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+#slideshow > div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+
+
+}
+
+#slideshow img {
+    max-width:300px;
+    max-height:300px;
+    margin-left: 10px;
+    margin-top: 10px
+
+
+}
+
+#canvas{
+
+  margin-top: 50px; 
+}
+

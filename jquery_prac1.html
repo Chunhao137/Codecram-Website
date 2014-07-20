@@ -1,0 +1,592 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="highlighter/prettify.css" />
+
+   <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+   <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  
+      <!-- Bootstrap -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+    <script src="click.js"></script>
+
+    <title>Javascript Practice</title>
+    <script>
+// Made by RobseRob.dk
+// Please give credit.
+// Vars which contains key state
+var movLeft = 0;
+var movRight = 0;
+var movUp = 0;
+var movDown = 0;
+
+var score = 0;
+$(function() {
+  // Keydown listener
+  $("body").keydown(function(e) {
+    ek = e.keyCode;
+    if (ek==37) movLeft=1;
+    if (ek==39) movRight=1;
+    if (ek==38) movUp=1;
+    if (ek==40) movDown=1;
+
+    return false; 
+  });
+  // Keyuo listener
+  $("body").keyup(function(e) {
+    ek = e.keyCode;
+    if (ek==37) movLeft=0;
+    if (ek==39) movRight=0;
+    if (ek==38) movUp=0;
+    if (ek==40) movDown=0;
+
+    return false;
+  });
+  setup(); // Do setup
+});
+
+// Setups the game. Adds a new div "tempMov" which is used to calculate whenever the player is allowed to move
+function setup() {
+  var x = $(".player").css("left");
+  var y = $(".player").css("top");
+  var width = $(".player").width();
+  var height = $(".player").height();
+  $(".game").prepend("<div class='tempMov' style='position: absolute; left:"+x+"; top:"+y+"; width:"+width+"px; height:"+height+"px;'></div>");
+  setInterval("movTick()", 10); // Setup interval. Delay controlls tickrate.
+}
+
+// Checks if a is inside b
+function insideGameArea(a, b) {
+  var aPos = a.position();
+  
+  var aLeft = aPos.left;
+  var aRight = aPos.left + a.width();
+  var aTop = aPos.top;
+  var aBottom = aPos.top + a.height();
+  
+  var bLeft = 0
+  var bRight = b.width();
+  var bTop = 0
+  var bBottom = b.height();
+  return !(aLeft < 0 || aTop < 0 || aRight > bRight || aBottom > bBottom);
+}
+
+// Checks if div a overlaps div b
+function divOverlap(a, b) {
+  var aPos = a.position();
+  var bPos = b.position();
+  
+  var aLeft = aPos.left;
+  var aRight = aPos.left + a.width();
+  var aTop = aPos.top;
+  var aBottom = aPos.top + a.height();
+  
+  var bLeft = bPos.left;
+  var bRight = bPos.left + b.width();
+  var bTop = bPos.top;
+  var bBottom = bPos.top + b.height();
+  
+  return !( bLeft > aRight || bRight < aLeft || bTop > aBottom || bBottom < aTop);
+}
+
+// Move one pixel for each direction and check if move is valid.
+function movTick() {
+  var moved = 0;
+  if (movUp) { $(".tempMov").css({"top": "-=1"}); moved=1;}
+  if (movDown) { $(".tempMov").css({"top": "+=1"}); moved=1;}
+  if (movLeft) { $(".tempMov").css({"left": "-=1"}); moved=1;}
+  if (movRight) { $(".tempMov").css({"left": "+=1"}); moved=1;}
+  if (!moved) return false;
+  var moveAllowed = 1;
+  
+  if (!insideGameArea($(".tempMov"), $(".game"))) moveAllowed = 0; // Checks if move is inside the gamearea.
+  
+  $(".solid").each(function(index) {
+    if (divOverlap($(".tempMov"), $(".solid:eq("+index+")"))) moveAllowed=0; // Checks if there is any overlap on a solid object.
+  });
+  
+  $(".coin").each(function(index) {
+    if (divOverlap($(".tempMov"), $(".coin:eq("+index+")"))) { score+=50; $(".coin:eq("+index+")").remove(); } // Checks if there is any overlap on a coin.
+  });
+    
+  if (moveAllowed) {
+    $(".player").css({"left": $(".tempMov").css("left"), "top": $(".tempMov").css("top")}); // Apply the move to the player
+  } else {
+    $(".tempMov").css({"left": $(".player").css("left"), "top": $(".player").css("top")}); // Reset the tempMov to last location
+  }
+}
+</script>
+
+     <!-- Insert Javascript file -->
+</head>
+
+<body>
+	<script src="highlighter/prettify.js"></script>
+		<nav class="navbar navbar-default" role="navigation">
+  	<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Codecram</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  <div class="jumbotron">
+
+
+     <center><h1>jQuery Practice Problems</h1></center>
+         
+<!-- coderbyte21 -->
+<center><div id="outline">
+<div id="circle1"></div>
+</div>click to see circle explode</center>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;jQuery Problem #1</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  Given the html and css code below, use jQuery explode the circle above.
+  Click on the circle to see a demonstration. 
+</pre>
+</h5>
+
+index.html
+ <pre class = "prettyprint">
+
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+    &lt;link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/&gt;
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">&lt;/script>
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js">&lt;/script&gt;
+    &lt;script type="text/javascript" src="script.js">
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+       &lt;div id="circle">&lt;/div&gt;
+
+    &lt;/body&gt;
+  &lt;/html&gt;
+</pre>
+style.css
+<pre class = "prettyprint">
+
+ #circle {
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    background: #4679BD;
+  }
+  
+</pre>
+
+</div>
+
+<p>
+
+  <div class = "container">
+  click.js
+  <pre class = "prettyprint">
+  <p class = "japp1" style="font-size: 10.4pt"> 
+     $(document).ready(function(){
+     $('#circle').click(function(){
+           $(this).hide("explode",1000); 
+          })
+      })</p>
+</pre>
+   </div>
+  
+    <button id = "jappbutton1" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+<center><div id="outline">
+<div id="circle2"></div>
+</div>click to see circle fade away</center>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;jQuery Problem #2</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  Given the html and css code below, use jQuery fade the circle above slowly.
+  Click on the circle to see a demonstration. 
+</pre>
+</h5>
+
+index.html
+ <pre class = "prettyprint">
+
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+    &lt;link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/&gt;
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">&lt;/script>
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js">&lt;/script&gt;
+    &lt;script type="text/javascript" src="script.js">
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+       &lt;div id="circle">&lt;/div&gt;
+
+    &lt;/body&gt;
+  &lt;/html&gt;
+</pre>
+style.css
+<pre class = "prettyprint">
+
+ #circle {
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    background: #4679BD;
+  }
+  
+</pre>
+
+</div>
+
+<p>
+  
+  <div class = "container">
+  click.js
+  <pre class = "prettyprint">
+  <p class = "japp2" style="font-size: 10.4pt"> 
+
+   $(document).ready(function(){
+   $('#circle').click(function(){
+           $(this).fadeOut("slow"); 
+          
+     })
+   })
+</pre>
+   </div>
+  
+    <button id = "jappbutton2" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+
+   <div id="outline1">
+<div class="square1"></div>
+</div><div style="margin-left:30px;">click to see square move to the right</div>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;jQuery Problem #3</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+  Given the html and css code below, use jQuery to move the square above to 
+  the right. Click on the square to see a demonstration. 
+</pre>
+</h5>
+
+index.html
+ <pre class = "prettyprint">
+
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+    &lt;link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/&gt;
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">&lt;/script>
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js">&lt;/script&gt;
+    &lt;script type="text/javascript" src="script.js">
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+       &lt;div id="square">&lt;/div&gt;
+
+    &lt;/body&gt;
+  &lt;/html&gt;
+</pre>
+style.css
+<pre class = "prettyprint">
+
+ #square {
+    width: 100px;
+    height:100px;
+    background: #4679BD;
+    position:absolute;
+ }
+  
+</pre>
+
+</div>
+
+<p>
+  
+  <div class = "container">
+  click.js
+  <pre class = "prettyprint">
+  <p class = "japp3" style="font-size: 10.4pt"> 
+
+   $(document).ready(function(){
+   $('#square').click(function(){
+   $('div').animate({left:'870px'},1500); 
+          
+     })
+   })
+</pre>
+   </div>
+  
+    <button id = "jappbutton3" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+    <p>
+
+  <div class='game'>
+  <div class='player' style='left:10px; top:10px;'></div>
+    <div class='solid' style='width:250px; height:50px; background-color:rgba(0,125,0,0.3); left:0px; top:50px;'></div>
+    <div class='solid' style='width:50px; height:200px; background-color:rgba(0,125,0,0.3); left:300px; top:0px;'></div>
+    <div class='solid' style='width:100px; height:50px; background-color:rgba(0,125,0,0.3); left:200px; top:150px;'></div>
+    <div class="solid" style="width:50px; height:200px; background-color:rgba(0,125,0,0.3); left:100px; top:100px;"></div>    
+    <div class="solid" style="width:50px; height:200px; background-color:rgba(0,125,0,0.3); left:200px; top:200px;"></div>
+    <div class="solid" style="width:150px; height:50px; background-color:rgba(0,125,0,0.3); left:50px; top:350px;"></div>
+    
+    <div class="coin" style="left:50px; top: 17px;"></div>
+    <div class="coin" style="left: 100px; top: 17px;"></div>
+    <div class="coin" style="left: 150px; top: 17px;"></div>
+    <div class="coin" style="left: 200px; top: 17px;"></div>
+</div>
+
+
+
+
+<center>Use arrow keys on your keyboard to move the square</center>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;jQuery Problem #4</h3>
+
+<div class="container">
+<p>
+   <pre><h5>
+   Create the maze game above using jQuery. 
+</pre>
+</h5>
+
+index.html
+ <pre style="width:100%" class = "prettyprint">
+
+  &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+     &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">&lt;/script>
+    &lt;/head&gt;
+      &lt;body&gt;
+      &lt;div class='game'&gt;
+      &lt;div class='player' style='left:10px; top:10px;'>&lt;/div&gt;
+      &lt;div class='solid' style='width:250px; height:50px; background
+      color:rgba 0,125,0,0.3); left:0px; top:50px;'>&lt;/div&gt;
+      &lt;div class='solid' style='width:50px; height:200px; background
+      color:rgba 0,125,0,0.3); left:300px; top:0px;'>&lt;/div&gt;
+      &lt;div class='solid' style='width:100px; height:50px; background
+      color:rgba 0,125,0,0.3); left:200px; top:150px;'>&lt;/div&gt;
+      &lt;div class="solid" style="width:50px; height:200px; background
+      color:rgba 0,125,0,0.3); left:100px; top:100px;">&lt;/div&gt;    
+      &lt;div class="solid" style="width:50px; height:200px; background
+      color:rgba 0,125,0,0.3); left:200px; top:200px;">&lt;/div&gt;
+      &lt;div class="solid" style="width:150px; height:50px; background
+      color:rgba 0,125,0,0.3); left:50px; top:350px;">&lt;/div&gt;
+    
+      &lt;div class="coin" style="left:50px; top: 17px;">&lt;/div&gt;
+      &lt;div class="coin" style="left: 100px; top: 17px;">&lt;/div&gt;
+      &lt;div class="coin" style="left: 150px; top: 17px;">&lt;/div&gt;
+      &lt;div class="coin" style="left: 200px; top: 17px;">&lt;/div&gt;
+
+    
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+ 
+</pre>
+style.css
+<pre class = "prettyprint">
+
+  .game {
+    width:500px;
+    height:500px;
+    position:relative; 
+    border:2px solid #000;
+    margin-left: 300px; 
+  }
+  .player {
+    width:25px; 
+    height:25px; 
+    background-color:#000000; 
+    position:absolute;  
+  }
+  .solid {
+    position:absolute; 
+  }
+  .coin {
+    width:10px;
+    height:10px;
+    position:absolute; 
+    background:rgba(255,204,0,1);
+  }
+  
+</pre>
+
+</div>
+
+<p>
+  
+  <div class = "container">
+  click.js
+  <pre class = "prettyprint">
+  <p class = "japp4" style="font-size: 10.4pt"> 
+  var movLeft = 0;
+  var movRight = 0;
+  var movUp = 0;
+  var movDown = 0;
+
+  var score = 0;
+  $(function() {
+    // Keydown listener
+    $("body").keydown(function(e) {
+      ek = e.keyCode;
+      if (ek==37) movLeft=1;
+      if (ek==39) movRight=1;
+      if (ek==38) movUp=1;
+      if (ek==40) movDown=1;
+     });
+    // Keyup listener
+    $("body").keyup(function(e) {
+      ek = e.keyCode;
+      if (ek==37) movLeft=0;
+      if (ek==39) movRight=0;
+      if (ek==38) movUp=0;
+      if (ek==40) movDown=0;
+    });
+      setup(); // Do setup
+  });
+
+    // Setups the game. Adds a new div "tempMov" which is used to calculate whenever the player is allowed to move
+  function setup() {
+    var x = $(".player").css("left");
+    var y = $(".player").css("top");
+    var width = $(".player").width();
+    var height = $(".player").height();
+    $(".game").prepend("&lt;div class='tempMov' style='position: absolute; left:"+x+"; top:"+y+"; width:"+width+"px; height:"+height+"px;'>&lt;/div>");
+    setInterval("movTick()", 10); // Setup interval. Delay controlls tickrate.
+    }
+
+    // Checks if a is inside b
+  function insideGameArea(a, b) {
+    var aPos = a.position();
+  
+    var aLeft = aPos.left;
+    var aRight = aPos.left + a.width();
+    var aTop = aPos.top;
+    var aBottom = aPos.top + a.height();
+  
+    var bLeft = 0
+    var bRight = b.width();
+    var bTop = 0
+    var bBottom = b.height();
+    return !(aLeft < 0 || aTop < 0 || aRight > bRight || aBottom > bBottom);
+  }
+
+    // Checks if div a overlaps div b
+  function divOverlap(a, b) {
+    var aPos = a.position();
+    var bPos = b.position();
+  
+    var aLeft = aPos.left;
+    var aRight = aPos.left + a.width();
+    var aTop = aPos.top;
+    var aBottom = aPos.top + a.height();
+  
+    var bLeft = bPos.left;
+    var bRight = bPos.left + b.width();
+    var bTop = bPos.top;
+    var bBottom = bPos.top + b.height();
+  
+    return !( bLeft > aRight || bRight < aLeft || bTop > aBottom || bBottom < aTop);
+  }
+
+  // Move one pixel for each direction and check if move is valid.
+  function movTick() {
+    var moved = 0;
+    if (movUp) { $(".tempMov").css({"top": "-=1"}); moved=1;}
+    if (movDown) { $(".tempMov").css({"top": "+=1"}); moved=1;}
+    if (movLeft) { $(".tempMov").css({"left": "-=1"}); moved=1;}
+    if (movRight) { $(".tempMov").css({"left": "+=1"}); moved=1;}
+    if (!moved) return false;
+    var moveAllowed = 1;
+  
+    if (!insideGameArea($(".tempMov"), $(".game"))) moveAllowed = 0; // Checks if move is inside the gamearea.
+  
+   $(".solid").each(function(index) {
+      if (divOverlap($(".tempMov"), $(".solid:eq("+index+")"))) moveAllowed=0; 
+      // Checks if there is any overlap on a solid object.
+    });
+  
+   $(".coin").each(function(index) {
+     if (divOverlap($(".tempMov"), $(".coin:eq("+index+")"))) { score+=50; $("coin:eq("+index+")").remove(); } 
+     // Checks if there is any overlap on a coin.});
+    
+    if (moveAllowed) {
+      $(".player").css({"left": $(".tempMov").css("left"), "top": $(".tempMov")
+      .css("top")}); // Apply the move to the player
+    } else {
+      $(".tempMov").css({"left": $(".player").css("left"), "top": $(".player")css("top")}); 
+      // Reset the tempMov to last location
+    }
+  }
+</pre>
+   </div>
+  
+    <button id = "jappbutton4" type = "button" class = "btn btn-primary btn-lg" value="Answer">Answer</button>
+    <p>
+
+
+
+ 
+
+<script>prettyPrint();</script>
+<!-- begin htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/simple/skin.css" />
+<script type="text/javascript" language="javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={  };} (function(){s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+<div id="footer"><br />&copy; 2014 Charles Wang. All rights reserved. </div>
+</div>
+
+</body>
+</html>
